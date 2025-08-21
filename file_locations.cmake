@@ -1,9 +1,9 @@
 #
 # @file     file_locations.cmake
-# @brief    This cmake file contains all the roots to our compiler and avrdude
+# @brief    This cmake file contains all the roots to our compiler
 # @author   Nico Verduin
-# version   1.0 original
-# @date     11-5-2023
+# version   1.1 original
+# @date     21-8-2025
 #
 
 # root folder of our tool. is automatically determined
@@ -12,6 +12,8 @@ cmake_path(GET CMAKE_CURRENT_SOURCE_DIR PARENT_PATH DEV_ROOT)
 # depending on the platform used the compiler folder might need to be changed or left blank
 if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
     # windows avr-gcc compiler
+    # desktop apps also get an absolute path
+    get_filename_component(TOOLCHAIN_PATH  "../mingw32/bin" ABSOLUTE )
     set(TOOLCHAIN_PATH "MYWINDOWSPATH")
 else()
     if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Darwin")
