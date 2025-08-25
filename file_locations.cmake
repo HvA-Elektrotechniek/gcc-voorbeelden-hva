@@ -14,7 +14,8 @@ if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
     # windows avr-gcc compiler
     # desktop apps also get an absolute path
     get_filename_component(TOOLCHAIN_PATH  "../mingw32/bin" ABSOLUTE )
-    set(TOOLCHAIN_PATH "MYWINDOWSPATH")
+    # remove below statement now that the absolute path is automatically determined
+    #set(TOOLCHAIN_PATH "MYWINDOWSPATH")
 else()
     if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Darwin")
         # mac osx avr-gcc compiler. Using standard packager installation
